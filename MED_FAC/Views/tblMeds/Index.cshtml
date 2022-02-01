@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MED_FAC.Models.tblMed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","tblMeds")" class="btn btn-theme02 glyphicon glyphicon-pencil ">Create New</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Medicine Name
+        </th>
+        <th>
+            Medicine Brand
+        </th>
+        <th>
+            Medicine Image
+        </th>
+        <th>
+           Medicine Weight
+        </th>
+        <th>
+            Medicine Price
+        </th>
+        <th>
+           Medicine Details
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderMed_FID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var medicine in Model) {
+    <tr>
+        <td>
+            @medicine.MEDICINE_NAME
+        </td>
+        <td>
+            @medicine.MEDICINE_BRAND
+        </td>
+        <td>
+           <img src="@Url.Content(medicine.MEDICINE_IMAGE)" width="100" height="100" />
+            @*@medicine.MEDICINE_IMAGE*@
+        </td>
+        <td>
+            @medicine.MADICINE_WEIGHT
+        </td>
+        <td>
+            @medicine.MEDICINE_PRICE
+        </td>
+        <td>
+            @medicine.MEDICINE_DETAILS
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => medicine.OrderMed_FID)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "tblMeds", new {id=medicine.MEDICINE_ID})" class="btn btn-primary glyphicon glyphicon-edit"></a>
+            <a href="@Url.Action("Details", "tblMeds", new {id=medicine.MEDICINE_ID})" class="btn btn-success glyphicon glyphicon-book"></a>
+            <a href="@Url.Action("Delete", "tblMeds", new {id=medicine.MEDICINE_ID})" class="btn btn-danger glyphicon glyphicon-trash"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.MEDICINE_ID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.MEDICINE_ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.MEDICINE_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

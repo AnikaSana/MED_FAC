@@ -1,0 +1,75 @@
+﻿@model MED_FAC.Models.tblMed
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblMed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICINE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICINE_BRAND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_BRAND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICINE_IMAGE)
+        </dt>
+
+        <dd>
+           <img src="@Url.Content(Model.MEDICINE_IMAGE)" width="100" height="100" />
+            @*@Html.DisplayFor(model => model.MEDICINE_IMAGE)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MADICINE_WEIGHT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MADICINE_WEIGHT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICINE_PRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_PRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICINE_DETAILS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_DETAILS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderMed_FID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderMed_FID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MEDICINE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

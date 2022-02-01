@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MED_FAC.Models.tblSchedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","tblSchedules")" class="btn btn-theme02 glyphicon glyphicon-pencil ">Create New</a>
+
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDoctor.DOCTOR_NAME)
+        </th>
+        <th>
+            Schedule Time
+        </th>
+        @*<th>
+           Schedule Date
+        </th>*@
+        <th>
+           Schedule Day
+        </th>
+        <th>
+            Schedule Location
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var schedule in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => schedule.tblDoctor.DOCTOR_NAME)
+        </td>
+        <td>
+            @schedule.SCHEDULE_TIME
+        </td>
+        @*<td>
+            @schedule.SCHEDULE_DATE
+        </td>*@
+        <td>
+            @schedule.SCHEDULE_DAY
+        </td>
+        <td>
+            @schedule.SCHEDULE_LOC
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "tblSchedules", new {id=schedule.SCHEDULE_ID})" class="btn btn-primary glyphicon glyphicon-edit"></a>
+            <a href="@Url.Action("Details", "tblSchedules", new {id=schedule.SCHEDULE_ID})" class="btn btn-success glyphicon glyphicon-book"></a>
+            <a href="@Url.Action("Delete", "tblSchedules", new {id=schedule.SCHEDULE_ID})" class="btn btn-danger glyphicon glyphicon-trash"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.SCHEDULE_ID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.SCHEDULE_ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.SCHEDULE_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

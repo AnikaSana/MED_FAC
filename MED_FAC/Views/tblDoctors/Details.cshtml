@@ -1,0 +1,59 @@
+﻿@model MED_FAC.Models.tblDoctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblDoctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblDept.DEPARTMENT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDept.DEPARTMENT_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOCTOR_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOCTOR_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOCTOR_IMAGE)
+        </dt>
+
+        <dd>
+           <img src="@Url.Content(Model.DOCTOR_IMAGE)" width="100"height="100" />
+            @*@Html.DisplayFor(model => model.DOCTOR_IMAGE)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOCTOR_FEE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOCTOR_FEE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOCTOR_CONTACT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOCTOR_CONTACT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DOCTOR_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

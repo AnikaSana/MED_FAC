@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MED_FAC.Models.tblDoctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","tblDoctors")" class="btn btn-theme02 glyphicon glyphicon-pencil">Create New</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDept.DEPARTMENT_NAME)
+        </th>
+        <th>
+            Doctor Name
+        </th>
+        <th>
+            Doctor Image
+        </th>
+        <th>
+            Doctor Fee
+        </th>
+        <th>
+           Doctor Contact
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var doctor in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => doctor.tblDept.DEPARTMENT_NAME)
+        </td>
+        <td>
+            @doctor.DOCTOR_NAME
+        </td>
+        <td>
+            <img src="@Url.Content(doctor.DOCTOR_IMAGE)" width="100" height="100" />
+
+            @*@doctor.DOCTOR_IMAGE*@
+            @*@Html.DisplayFor(modelItem => item.DOCTOR_IMAGE)*@
+        </td>
+        <td>
+            @doctor.DOCTOR_FEE
+        </td>
+        <td>
+            @doctor.DOCTOR_CONTACT
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "tblDoctors", new {id=doctor.DOCTOR_ID})" class="btn btn-primary glyphicon glyphicon-edit"></a>
+            <a href="@Url.Action("Details", "tblDoctors", new {id=doctor.DOCTOR_ID})" class="btn btn-success glyphicon glyphicon-book"></a>
+            <a href="@Url.Action("Delete", "tblDoctors", new {id=doctor.DOCTOR_ID})" class="btn btn-danger glyphicon glyphicon-trash"></a>
+
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.DOCTOR_ID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.DOCTOR_ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.DOCTOR_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

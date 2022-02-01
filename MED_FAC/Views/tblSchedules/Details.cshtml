@@ -1,0 +1,58 @@
+﻿@model MED_FAC.Models.tblSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblDoctor.DOCTOR_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDoctor.DOCTOR_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCHEDULE_TIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCHEDULE_TIME)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SCHEDULE_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCHEDULE_DATE)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCHEDULE_DAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCHEDULE_DAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SCHEDULE_LOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SCHEDULE_LOC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SCHEDULE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

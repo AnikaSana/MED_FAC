@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MED_FAC.Models.tblDept>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","tblDepts")" class="btn btn-theme02 glyphicon glyphicon-pencil ">Create New</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Department Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var department in Model) {
+    <tr>
+        <td>
+           @department.DEPARTMENT_NAME
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "tblDepts", new {id=department.DEPARTMENT_ID})" class="btn btn-primary glyphicon glyphicon-edit"></a>
+            <a href="@Url.Action("Details", "tblDepts", new {id=department.DEPARTMENT_ID})" class="btn btn-success glyphicon glyphicon-book"></a>
+            <a href="@Url.Action("Delete", "tblDepts", new {id=department.DEPARTMENT_ID})" class="btn btn-danger glyphicon glyphicon-trash"></a>
+
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.DEPARTMENT_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DEPARTMENT_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DEPARTMENT_ID })*@
+        </td>
+    </tr>
+}
+
+</table>
